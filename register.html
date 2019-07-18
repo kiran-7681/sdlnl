@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style type="text/css">
+       body{ 
+            margin:0px;
+            padding: 0px;
+            font: 14px sans-serif;
+            background: url(bg6.jpg) no-repeat;
+            background-size: cover;
+        }
+        .wrapper{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width:400px;
+            padding:40px;
+            background: rgba(0,0,0,.8);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 10px;
+        }
+        .wrapper h1,p{
+            margin: 0 0 30px;
+            padding:0;
+            color: #fff;
+            text-align: center;
+        }
+        .wrapper .form-group{
+            position: relative;
+        }
+        .wrapper .form-group input{
+            width:65%;
+            border: 2px solid #03a9f4;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            color:#fff;
+            margin-left: 60px;
+            margin-bottom: 30px;
+            outline:none;
+            background: transparent;
+        }
+        .wrapper .form-group label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding:10px 0;
+            font-size: 16px;
+            color:#fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .wrapper input[type="text"]:hover, .wrapper input[type="email"]:hover, .wrapper input[type="password"]:hover{
+            border-color: #4caf50;
+        }
+        .wrapper input[type="text"]:focus, .wrapper input[type="email"]:focus, .wrapper input[type="password"]:focus{
+            border-color: #4caf50;
+            margin-left: 35px;
+            width: 80%;
+        }
+        .wrapper input[type="submit"], .wrapper input[type="reset"]{
+            background: transparent;
+            border:none;
+            width: 36%;
+            margin-left: 30px;
+            margin-right: 10px;
+            position: middle;
+            outline: none;
+            background: #03a9f4;
+            padding:7px 20px;
+            cursor:pointer;
+            border-radius: 15px;
+        }       
+        .wrapper input[type="submit"]:hover{
+            background: #4caf50;
+            color: black;
+            border-color: 2px solid #03a9f4;
+        }    
+        .wrapper input[type="reset"]:hover{
+            background: #4caf50;
+            color: black;
+            border-color: 2px solid #03a9f4;
+        }
+        .wrapper input[type="submit"]:focus, .wrapper input[type="reset"]:focus{
+            background-color: black;
+            color:white;
+            border:2px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>SIGN UP</h1>
+        <p>Please fill this form to create an account.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <input type="text" name="username" class="form-control" placeholder="username">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <input type="email" name="email" placeholder= "email" class="form-control">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>  
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="password" class="form-control" placeholder="password">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="confirm_password" class="form-control" placeholder="confirm_password">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style type="text/css">
+        body{ 
+            margin:0px;
+            padding: 0px;
+            font: 14px sans-serif;
+            background: url(bg6.jpg) no-repeat;
+            background-size: cover;
+        }
+        .wrapper{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width:400px;
+            padding:40px;
+            background: rgba(0,0,0,.8);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 10px;
+        }
+        .wrapper h2,p{
+            margin: 0 0 30px;
+            padding:0;
+            color: #fff;
+            text-align: center;
+        }
+        .wrapper .form-group{
+            position: relative;
+        }
+        .wrapper .form-group input{
+            width:50%;
+            border: 2px solid #03a9f4;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            color:#fff;
+            margin-left: 80px;
+            margin-bottom: 30px;
+            outline:none;
+            background: transparent;
+        }
+        .wrapper .form-group label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding:10px 0;
+            font-size: 16px;
+            color:#fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .wrapper input[type="text"]:hover, .wrapper input[type="password"]:hover{
+            border-color: #4caf50;
+        }
+        .wrapper input[type="text"]:focus, .wrapper input[type="password"]:focus{
+            border-color: #4caf50;
+            margin-left: 52px;
+            width: 70%;
+        }
+        .wrapper input[type="submit"]{
+            background: transparent;
+            border:none;
+            width: 30%;
+            margin-left: 120px;
+            position: middle;
+            outline: none;
+            background: #03a9f4;
+            padding:7px 20px;
+            cursor:pointer;
+            border-radius: 15px;
+        }       
+        .wrapper input[type="submit"]:hover{
+            background: #4caf50;
+            color: black;
+            border-color: 2px solid #03a9f4;
+        }
+        .wrapper input[type="submit"]:focus{
+            background-color: black;
+            color: white;
+            border: 2px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <input type="text" name="username" class="form-control" placeholder = "username">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="password" placeholder = "password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>
